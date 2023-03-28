@@ -25,7 +25,7 @@
 	  	    <h1><a href="/" class="logo">Cofre Seguro</a></h1>
             <ul class="list-unstyled components mb-5">
                 <li class="active"><a href="/"><span class="fa fa-home mr-3"></span> Dasboard</a></li>
-                <li><a href="/credentials.php">a<span class="fa fa-user mr-3"></span> Credenciais</a></li>
+                <li><a href="/credentials.php"><span class="fa fa-user mr-3"></span> Credenciais</a></li>
                 <li><a href="#"><span class="fa fa-address-card mr-3"></span> Dados Pessoais</a></li>
                 <li><a href="#"><span class="fa fa-sticky-note mr-3"></span> Notas Seguras</a></li>
                 <li><a href="#"><span class="fa fa fa-cog mr-3"></span> Configuração</a></li>
