@@ -9,7 +9,7 @@
 		
 	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/style-novo.css">
+        <link rel="stylesheet" href="css/style.css">
     </head>
 
   <body>	
@@ -30,6 +30,8 @@
                 <li><a href="#"><span class="fa fa-sticky-note mr-3"></span> Notas Seguras</a></li>
                 <li><a href="#"><span class="fa fa fa-cog mr-3"></span> Configuração</a></li>
                 <li><a href="#"><span class="fa fa-info-circle mr-3"></span> Sobre</a></li>
+                
+                <li><a href="controllers/logout.php" class="btn-logout"><span class="fa fa-window-close mr-3 "></span> Sair</a></li>
             </ul>
 
     	</nav>
