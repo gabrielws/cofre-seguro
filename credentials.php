@@ -1,4 +1,6 @@
 <?php
+  
+
   require_once 'controllers/verifica.php';
   require_once 'db/config.php';
 
@@ -11,7 +13,7 @@
 ?>
 
 <div id="content" class="p-4 p-md-5 pt-5">
-<div class="row row-cols-1 row-cols-md-3 g-4">
+<div class="row row-cols-1 row-cols-md-3 g-4 text-white">
 
     <h1>Credenciais</h1>
 
@@ -34,7 +36,11 @@
         <div class="modal-body">
           <form action="controllers/add-credential.php" method="POST">
             <div class="form-group">
-              <label for="nome" class="col-form-label">Nome:</label>
+            <div class="form-group">
+              <label for="site" class="col-form-label">Nome do Site:</label>
+              <input type="text" class="form-control" id="site" name="site">
+            </div>
+              <label for="nome" class="col-form-label">Nome de Usuário:</label>
               <input type="text" class="form-control" id="name" name="name">
             </div>
             <div class="form-group">
@@ -42,14 +48,9 @@
               <input type="text" class="form-control" id="password" name="password">
             </div>
             <div class="form-group">
-              <label for="site" class="col-form-label">Site:</label>
-              <input type="text" class="form-control" id="site" name="site">
-            </div>
-            <div class="form-group">
               <label for="url" class="col-form-label">URL:</label>
               <input type="text" class="form-control" id="url" name="url">
             </div><br>
-
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
               <button type="submit" class="btn btn-primary">Adicionar</button>
@@ -65,9 +66,12 @@
 <?php foreach($senhas as $senha):?>
   <div class="col">
     <div class="card" data-bs-toggle="modal" data-bs-target="#modal<?php echo $senha['idSenha'] ?>">
-      <div class="card-body">
-        <h5 class="card-title"><?php echo $senha['nome'] ?></h5>
-        <p class="card-text"><?php echo $senha['site'] ?></p>
+      <div class="card-body text-white">
+        <div class="div-card">
+          <img class="img-card" src="https://www.<?php echo $senha['nome'] ?>.com/favicon.ico" alt="">
+          <h5 class="card-title"><?php echo $senha['nome'] ?></h5>
+        </div>
+        <p class="card-text text-muted"><?php echo $senha['site'] ?></p>
       </div>
     </div>
   </div>
@@ -79,22 +83,24 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <form method="POST" action="#">
+      <form method="POST" action="controllers/update-credential.php">
+          <input type="text" name="id" value="<?php echo $senha['idSenha'] ?>" hidden readonly>
           <div class="form-group">
-            <label for="nome" class="col-form-label">Nome:</label>
-            <input type="text" class="form-control" id="nome" value="<?php echo $senha['nome'] ?>">
+            <label for="site" class="col-form-label">Nome do Site:</label>
+            <input type="text" name="site" class="form-control" id="site" value="<?php echo $senha['site'] ?>">
           </div>
           <div class="form-group">
-            <label for="senha" class="col-form-label">Senha:</label>
-            <input type="text" class="form-control" id="senha" value="<?php echo $senha['senha'] ?>">
+            <label for="name" class="col-form-label">Nome de Usuário:</label>
+            <input type="text" name="name" class="form-control" id="name" value="<?php echo $senha['nome'] ?>">
           </div>
           <div class="form-group">
-            <label for="site" class="col-form-label">Site:</label>
-            <input type="text" class="form-control" id="site" value="<?php echo $senha['site'] ?>">
+            <label for="password" class="col-form-label">Senha:</label>
+            <input type="text" name="password" class="form-control" id="password" value="<?php echo $senha['senha'] ?>">
           </div>
+          
           <div class="form-group">
             <label for="url" class="col-form-label">URL:</label>
-            <input type="text" class="form-control" id="url" value="<?php echo $senha['url'] ?>">
+            <input type="text" name="url" class="form-control" id="url" value="<?php echo $senha['url'] ?>">
           </div>
       <br>
       <div class="modal-footer">

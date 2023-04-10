@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;900&display=swap');
+
 body {
     font-family: "Poppins", Arial, sans-serif;
     font-size: 14px;
     line-height: 1.8;
     font-weight: normal;
-    background: #fff;
-    color: gray;
+    background: #222736;
+    /* color: #fff; */
 }
 
 a {
@@ -46,11 +48,10 @@ button:hover, button:focus {
     box-shadow: none !important; 
 }
 
-h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
+h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5, p {
     line-height: 1.5;
     font-weight: 400;
     font-family: "Poppins", Arial, sans-serif;
-    color: #000; 
 }
 
 .img{
@@ -66,12 +67,13 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 #sidebar{
     min-width: 250px;
     max-width: 250px;
-    background: #212121;
+    background: #2a3042;
     color: #fff;
     -webkit-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
     position: relative;
+    box-shadow: 0 0.75rem 1.5rem rgba(18,38,63,.03);
 }
 
 #sidebar .h6 {
@@ -90,13 +92,14 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
     margin-bottom: 20px;
     font-weight: 700;
     font-size: 20px;
+    text-align: center;
 }
 
 #sidebar h1 .logo{
     color: #fff;
     display: block;
     padding: 10px 30px;
-    background: #175ddc;
+    background: #2a3042;
 }
     
 #sidebar ul.components {
@@ -104,7 +107,7 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 }
     
 #sidebar ul li {
-    font-size: 16px;
+    font-size: 14px;
 }
       
 #sidebar ul li > ul {
@@ -170,7 +173,7 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 }
 
 #sidebar .custom-menu .btn.btn-primary i {
-    color: black;
+    color: #fff;
     font-size: 24px;
 }
 
@@ -213,7 +216,7 @@ a[data-toggle="collapse"]{
 
 .card{
     border-radius: 4px;
-    background: #fff;
+    background: #2a3042;
     box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
     transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
     padding: 14px 80px 18px 36px;
@@ -227,4 +230,27 @@ a[data-toggle="collapse"]{
 
 .btn-logout{
     color: red;
+}
+
+.text-muted{
+    color: var(--bs-gray-600)!important;
+}
+
+.btn.btn-primary{
+    background-color: #556ee6;
+}
+
+.card-title{
+    font-size: 1rem;
+}
+
+.div-card{
+    display: flex;
+}
+
+.img-card{
+    width: 20px;
+    height: 20px;
+    border-radius: 10%;
+    margin-right: 10px;
 }
