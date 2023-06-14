@@ -51,7 +51,7 @@ $tipos = $consulta2->fetchAll(PDO::FETCH_ASSOC);
                   <?php
 
                   foreach ($tipos as $tipo) {
-                    echo '<option value="' . $tipo['idTipo'] . '">' . $tipo['nome'] . '</option>';
+                    echo '<option value="' . $tipo['nome'] . '">' . $tipo['nome'] . '</option>';
                   }
 
                   ?>
@@ -88,7 +88,7 @@ $tipos = $consulta2->fetchAll(PDO::FETCH_ASSOC);
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <form method="POST" action="controllers/update-credential.php">
+              <form method="POST" action="controllers/update-dado.php">
                 <input type="text" name="id" value="<?php echo $dado['idDadoPessoal'] ?>" hidden readonly>
                 <div class="form-group">
                   <label for="nome" class="col-form-label">Nome:</label>
@@ -109,8 +109,8 @@ $tipos = $consulta2->fetchAll(PDO::FETCH_ASSOC);
                 </div>
               </form>
               <div class="modal-footer">
-                <form action="controllers/delete-credential.php" method="POST">
-                  <input type="text" name="id" value="<?php echo $senha['idSenha'] ?>" hidden readonly>
+                <form action="controllers/delete-dado.php" method="POST">
+                  <input type="text" name="id" value="<?php echo $dado['idDadoPessoal'] ?>" hidden readonly>
                   <button type="submit" class="btn btn-danger">Excluir</button>
                 </form>
               </div>
