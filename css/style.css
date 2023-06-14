@@ -5,8 +5,7 @@ body {
     font-size: 14px;
     line-height: 1.8;
     font-weight: normal;
-    background: #222736;
-    /* color: #fff; */
+    background: #414961;
 }
 
 a {
@@ -68,7 +67,7 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5, p {
     min-width: 250px;
     max-width: 250px;
     background: #2a3042;
-    color: #fff;
+    color: #2a3042;
     -webkit-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
@@ -77,7 +76,7 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5, p {
 }
 
 #sidebar .h6 {
-      color: #fff;
+      color: #2a3042;
 }
     
 #sidebar.active {

@@ -1,21 +1,23 @@
 <?php
 
-
 require_once 'controllers/verifica.php';
 require_once 'db/config.php';
 
-$title = "Credenciais";
+$title = "Dados Pessoais";
 require_once 'modules/header.php';
 
-$consulta = $con->query("SELECT * FROM senhas where idUsuario =" . $_SESSION['user_id']);
-$senhas = $consulta->fetchAll(PDO::FETCH_ASSOC);
+$consulta = $con->query("SELECT * FROM dadospessoais INNER JOIN tipos ON dadospessoais.idTipo = tipos.idTipo where idUsuario =" . $_SESSION['user_id']);
+$dados = $consulta->fetchAll(PDO::FETCH_ASSOC);
+
+$consulta2 = $con->query("SELECT * FROM tipos");
+$tipos = $consulta2->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
 <div id="content" class="p-4 p-md-5 pt-5">
   <div class="row row-cols-1 row-cols-md-3 g-4 text-white">
 
-    <h1>Credenciais</h1>
+    <h1>Dados Pessoais</h1>
 
   </div>
   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -30,30 +32,34 @@ $senhas = $consulta->fetchAll(PDO::FETCH_ASSOC);
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Adicionar Credencial</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Adicionar Dado Pessoal</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form action="controllers/add-credential.php" method="POST">
+            <form action="controllers/add-dado.php" method="POST">
               <div class="form-group">
-                <div class="form-group">
-                  <label for="site" class="col-form-label">Nome do Site:</label>
-                  <input type="text" class="form-control" id="site" name="site">
-                </div>
-                <label for="nome" class="col-form-label">Nome de Usuário:</label>
-                <input type="text" class="form-control" id="name" name="name">
+                <label for="nome" class="col-form-label">Nome:</label>
+                <input type="text" class="form-control" id="nome" name="nome">
               </div>
               <div class="form-group">
-                <label for="password" class="col-form-label">Senha:</label>
-                <input type="text" class="form-control" id="password" name="password">
+                <label for="conteudo" class="col-form-label">Conteúdo:</label>
+                <input type="text" class="form-control" id="conteudo" name="conteudo">
               </div>
               <div class="form-group">
-                <label for="url" class="col-form-label">URL:</label>
-                <input type="text" class="form-control" id="url" name="url">
+                <label for="tipo" class="col-form-label">Tipo:</label>
+                <select class="form-control" id="tipo" name="tipo">
+                  <?php
+
+                  foreach ($tipos as $tipo) {
+                    echo '<option value="' . $tipo['idTipo'] . '">' . $tipo['nome'] . '</option>';
+                  }
+
+                  ?>
+                </select>
               </div><br>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                <button type="submit" class="btn btn-primary">Adicionar</button>
+                <button type="select" class="btn btn-primary">Adicionar</button>
               </div>
             </form>
           </div>
@@ -63,44 +69,38 @@ $senhas = $consulta->fetchAll(PDO::FETCH_ASSOC);
   </div>
   <br>
   <div class="row row-cols-1 row-cols-md-3 g-4">
-    <?php foreach ($senhas as $senha) : ?>
+    <?php foreach ($dados as $dado) : ?>
       <div class="col">
-        <div class="card" data-bs-toggle="modal" data-bs-target="#modal<?php echo $senha['idSenha'] ?>">
+        <div class="card" data-bs-toggle="modal" data-bs-target="#modal<?php echo $dado['idDadoPessoal'] ?>">
           <div class="card-body text-white">
             <div class="div-card">
-              <!-- <img class="img-card" src="https://www.<?php echo $senha['nome'] ?>.com/favicon.ico" alt=""> -->
-              <h5 class="card-title"><?php echo $senha['nome'] ?></h5>
+              <h5 class="card-title"><?php echo $dado['nome'] ?></h5>
             </div>
-            <p class="card-text text-muted"><?php echo $senha['site'] ?></p>
+            <p class="card-text text-muted"><?php echo $dado['conteudo'] ?></p>
           </div>
         </div>
       </div>
-      <div class="modal fade" id="modal<?php echo $senha['idSenha'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="modal<?php echo $dado['idDadoPessoal'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel"><?php echo $senha['nome'] ?></h5>
+              <h5 class="modal-title" id="exampleModalLabel"><?php echo $dado['nome'] ?></h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <form method="POST" action="controllers/update-credential.php">
-                <input type="text" name="id" value="<?php echo $senha['idSenha'] ?>" hidden readonly>
+                <input type="text" name="id" value="<?php echo $dado['idDadoPessoal'] ?>" hidden readonly>
                 <div class="form-group">
-                  <label for="site" class="col-form-label">Nome do Site:</label>
-                  <input type="text" name="site" class="form-control" id="site" value="<?php echo $senha['site'] ?>">
+                  <label for="nome" class="col-form-label">Nome:</label>
+                  <input type="text" name="nome" class="form-control" id="nome" value="<?php echo $dado['nome'] ?>">
                 </div>
                 <div class="form-group">
-                  <label for="name" class="col-form-label">Nome de Usuário:</label>
-                  <input type="text" name="name" class="form-control" id="name" value="<?php echo $senha['nome'] ?>">
+                  <label for="conteudo" class="col-form-label">Conteúdo:</label>
+                  <input type="text" name="conteudo" class="form-control" id="conteudo" value="<?php echo $dado['conteudo'] ?>">
                 </div>
                 <div class="form-group">
-                  <label for="password" class="col-form-label">Senha:</label>
-                  <input type="text" name="password" class="form-control" id="password" value="<?php echo $senha['senha'] ?>">
-                </div>
-
-                <div class="form-group">
-                  <label for="url" class="col-form-label">URL:</label>
-                  <input type="text" name="url" class="form-control" id="url" value="<?php echo $senha['url'] ?>">
+                  <label for="tipo" class="col-form-label">Tipo:</label>
+                  <input type="text" class="form-control" value="<?php echo $dado['nome'] ?>" readonly disabled>
                 </div>
                 <br>
                 <div class="modal-footer">
