@@ -100,7 +100,7 @@ $notas = $consulta->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                   </form>
                   <div class=" modal-footer">
-                    <form action="controllers/delete-nota.php" method="POST">
+                    <form action="controllers/delete-nota.php" method="POST" onsubmit="return confirmDelete()">
                       <input type="text" name="id" value="<?php echo $nota['idNota'] ?>" hidden readonly>
                       <button type="submit" class="btn btn-danger">Excluir</button>
                     </form>

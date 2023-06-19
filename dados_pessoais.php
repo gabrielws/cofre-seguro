@@ -119,7 +119,7 @@ $tipos = $consulta2->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                   </form>
                   <div class="modal-footer">
-                    <form action="controllers/delete-dado.php" method="POST">
+                    <form action="controllers/delete-dado.php" method="POST" onsubmit="return confirmDelete()">
                       <input type="text" name="id" value="<?php echo $dado['idDadoPessoal'] ?>" hidden readonly>
                       <button type="submit" class="btn btn-danger">Excluir</button>
                     </form>

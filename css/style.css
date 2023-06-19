@@ -341,3 +341,16 @@ a[data-toggle="collapse"]{
     background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
     color: #fff;
 }
+
+.password-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.password-icon{
+    width: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+}
