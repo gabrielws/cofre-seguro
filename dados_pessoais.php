@@ -39,15 +39,15 @@ $tipos = $consulta2->fetchAll(PDO::FETCH_ASSOC);
             <form action="controllers/add-dado.php" method="POST">
               <div class="form-group">
                 <label for="nome" class="col-form-label">Nome:</label>
-                <input type="text" class="form-control" id="nome" name="nome">
+                <input type="text" class="form-control" id="nome" name="nome" minlength="3" maxlength="24" required>
               </div>
               <div class="form-group">
                 <label for="conteudo" class="col-form-label">Conteúdo:</label>
-                <input type="text" class="form-control" id="conteudo" name="conteudo">
+                <input type="text" class="form-control" id="conteudo" name="conteudo" minlength="3" maxlength="48" required>
               </div>
               <div class="form-group">
                 <label for="tipo" class="col-form-label">Tipo:</label>
-                <select class="form-control" id="tipo" name="tipo">
+                <select class="form-control" id="tipo" name="tipo" required>
                   <?php
 
                   foreach ($tipos as $tipo) {
@@ -102,15 +102,15 @@ $tipos = $consulta2->fetchAll(PDO::FETCH_ASSOC);
                     <input type="text" name="id" value="<?php echo $dado['idDadoPessoal'] ?>" hidden readonly>
                     <div class="form-group">
                       <label for="nome" class="col-form-label">Nome:</label>
-                      <input type="text" name="nome" class="form-control" id="nome" value="<?php echo $dado['nome'] ?>">
+                      <input type="text" name="nome" class="form-control" id="nome" value="<?php echo $dado['nome'] ?>" minlength="3" maxlength="24" required>
                     </div>
                     <div class="form-group">
                       <label for="conteudo" class="col-form-label">Conteúdo:</label>
-                      <input type="text" name="conteudo" class="form-control" id="conteudo" value="<?php echo $dado['conteudo'] ?>">
+                      <input type="text" name="conteudo" class="form-control" id="conteudo" value="<?php echo $dado['conteudo'] ?>" minlength="3" maxlength="48" required>
                     </div>
                     <div class="form-group">
                       <label for="tipo" class="col-form-label">Tipo:</label>
-                      <input type="text" class="form-control" value="<?php echo $dado['nomeTipo'] ?>" readonly disabled>
+                      <input type="text" class="form-control" value="<?php echo $dado['nomeTipo'] ?>" readonly disabled required>
                     </div>
                     <br>
                     <div class="modal-footer">
@@ -120,7 +120,7 @@ $tipos = $consulta2->fetchAll(PDO::FETCH_ASSOC);
                   </form>
                   <div class="modal-footer">
                     <form action="controllers/delete-dado.php" method="POST" onsubmit="return confirmDelete()">
-                      <input type="text" name="id" value="<?php echo $dado['idDadoPessoal'] ?>" hidden readonly>
+                      <input type="text" name="id" value="<?php echo $dado['idDadoPessoal'] ?>" hidden readonly required>
                       <button type="submit" class="btn btn-danger">Excluir</button>
                     </form>
                   </div>

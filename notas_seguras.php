@@ -36,11 +36,11 @@ $notas = $consulta->fetchAll(PDO::FETCH_ASSOC);
             <form action="controllers/add-nota.php" method="POST">
               <div class="form-group">
                 <label for="nome" class="col-form-label">Nome:</label>
-                <input type="text" class="form-control" id="nome" name="nome">
+                <input type="text" class="form-control" id="nome" name="nome" minlength="3" maxlength="24" required>
               </div>
               <div class="form-group">
                 <label for="conteudo" class="col-form-label">Conteúdo:</label>
-                <textarea class="form-control" name="conteudo" id="conteudo" cols="30" rows="10"></textarea>
+                <textarea class="form-control" name="conteudo" id="conteudo" cols="30" rows="10" minlength="3" maxlength="2048" required></textarea>
               </div><br>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -87,11 +87,11 @@ $notas = $consulta->fetchAll(PDO::FETCH_ASSOC);
                     <input type="text" name="id" value="<?php echo $nota['idNota'] ?>" hidden readonly>
                     <div class="form-group">
                       <label for="nome" class="col-form-label">Nome:</label>
-                      <input type="text" name="nome" class="form-control" id="nome" value="<?php echo $nota['nome'] ?>">
+                      <input type="text" name="nome" class="form-control" id="nome" value="<?php echo $nota['nome'] ?>" minlength="3" maxlength="24" required>
                     </div>
                     <div class="form-group">
                       <label for="conteudo" class="col-form-label">Conteúdo:</label>
-                      <textarea class="form-control" name="conteudo" id="conteudo" cols="30" rows="10"><?php echo $nota['conteudo'] ?></textarea>
+                      <textarea class="form-control" name="conteudo" id="conteudo" cols="30" rows="10" minlength="3" maxlength="2048" required><?php echo $nota['conteudo'] ?></textarea>
                     </div>
                     <br>
                     <div class="modal-footer">

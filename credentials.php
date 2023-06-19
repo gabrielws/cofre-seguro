@@ -37,18 +37,18 @@ $senhas = $consulta->fetchAll(PDO::FETCH_ASSOC);
                             <div class="form-group">
                                 <div class="form-group">
                                     <label for="site" class="col-form-label">Nome do Site:</label>
-                                    <input type="text" class="form-control" id="site" name="site" maxlength="14" required>
+                                    <input type="text" class="form-control" id="site" name="site" minlength="3" maxlength="14" required>
                                 </div>
                                 <label for="nome" class="col-form-label">Nome de Usuário:</label>
-                                <input type="text" class="form-control" id="name" name="name" maxlength="48" required>
+                                <input type="text" class="form-control" id="name" name="name" minlength="3" maxlength="48" required>
                             </div>
                             <div class="form-group">
                                 <label for="password" class="col-form-label">Senha:</label>
-                                <input type="text" class="form-control" id="password" name="password" maxlength="24" required>
+                                <input type="text" class="form-control" id="password" name="password" minlength="3" maxlength="24" required>
                             </div>
                             <div class="form-group">
                                 <label for="url" class="col-form-label">URL:</label>
-                                <input type="text" class="form-control" id="url" name="url" maxlength="48">
+                                <input type="text" class="form-control" id="url" name="url" minlength="3" maxlength="48">
                             </div><br>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -94,23 +94,23 @@ $senhas = $consulta->fetchAll(PDO::FETCH_ASSOC);
                                         <input type="text" name="id" value="<?php echo $senha['idSenha'] ?>" readonly hidden>
                                         <div class="form-group">
                                             <label for="site" class="col-form-label">Nome do Site:</label>
-                                            <input type="text" name="site" class="form-control" id="site" value="<?php echo $senha['site'] ?>" maxlength="14" required>
+                                            <input type="text" name="site" class="form-control" id="site" value="<?php echo $senha['site'] ?>" minlength="3" maxlength="14" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="name" class="col-form-label">Nome de Usuário:</label>
-                                            <input type="text" name="name" class="form-control" id="name" value="<?php echo $senha['nome'] ?>" maxlength="48" required>
+                                            <input type="text" name="name" class="form-control" id="name" value="<?php echo $senha['nome'] ?>" minlength="3" maxlength="48" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="password" class="col-form-label">Senha:</label>
                                             <div class="password-div">
-                                                <input type="password" name="password" class="form-control password-input" id="password" value="<?php echo $senha['senha'] ?>" maxlength="24" required>
+                                                <input type="password" name="password" class="form-control password-input" id="password" value="<?php echo $senha['senha'] ?>" minlength="3" maxlength="24" required>
                                                 <img src="/images/eye-off.svg" alt="Ver" class="password-icon">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="url" class="col-form-label">URL:</label>
-                                            <input type="text" name="url" class="form-control" id="url" value="<?php echo $senha['url'] ?>" maxlength="48">
+                                            <input type="text" name="url" class="form-control" id="url" value="<?php echo $senha['url'] ?>" minlength="3" maxlength="48">
                                         </div>
                                         <br>
                                         <div class="modal-footer">
@@ -121,7 +121,7 @@ $senhas = $consulta->fetchAll(PDO::FETCH_ASSOC);
 
                                     <div class="modal-footer">
                                         <form action="controllers/delete-credential.php" method="POST" onsubmit="return confirmDelete()">
-                                            <input type="text" name="idSenha" value="<?php echo $senha['idSenha'] ?>" readonly hidden>
+                                            <input type="text" name="idSenha" value="<?php echo $senha['idSenha'] ?>" readonly hidden required>
                                             <button type="submit" class="btn btn-danger">Excluir</button>
                                         </form>
                                     </div>
