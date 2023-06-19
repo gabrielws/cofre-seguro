@@ -91,7 +91,7 @@ $senhas = $consulta->fetchAll(PDO::FETCH_ASSOC);
                 </div>
                 <div class="modal-body">
                   <form method="POST" action="controllers/update-credential.php">
-                    <input type="text" name="id" value="<?php echo $senha['idSenha'] ?>" hidden readonly>
+                    <input type="text" name="id" value="<?php echo $senha['idSenha'] ?>" readonly>
                     <div class="form-group">
                       <label for="site" class="col-form-label">Nome do Site:</label>
                       <input type="text" name="site" class="form-control" id="site" value="<?php echo $senha['site'] ?>">
@@ -112,14 +112,14 @@ $senhas = $consulta->fetchAll(PDO::FETCH_ASSOC);
                     <br>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                      <button type="submit" class="btn btn-danger" form="form2">Excluir</button>
+
                       <button type="submit" class="btn btn-primary">Salvar</button>
                     </div>
                   </form>
                   <div class="modal-footer">
-                    <form action="controllers/delete-credential.php" method="POST" id="form2">
-                      <input type="text" name="id" value="<?php echo $senha['idSenha'] ?>" hidden readonly>
-
+                    <form action="controllers/delete-credential.php" method="POST">
+                      <input type="text" name="idSenha" value="<?php echo $senha['idSenha'] ?>" readonly>
+                      <button type="submit" class="btn btn-danger">Excluir</button>
                     </form>
                   </div>
                 </div>
@@ -131,5 +131,6 @@ $senhas = $consulta->fetchAll(PDO::FETCH_ASSOC);
       </div>
     </div>
   </div>
+</div>
 
-  <?php require_once 'modules/footer.php'; ?>
+<?php require_once 'modules/footer.php'; ?>

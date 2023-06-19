@@ -8,16 +8,19 @@ $id = $_POST['id'];
 $nome = $_POST['nome'];
 $conteudo = $_POST['conteudo'];
 
-$update = $con->prepare("UPDATE dadospessoais SET nome = :nome, conteudo = :conteudo WHERE idUsuario = :idUsuario AND idDadoPessoal = :id");
-$update->bindParam(':nome', $nome);
-$update->bindParam(':conteudo', $conteudo);
-$update->bindParam(':idUsuario', $idUsuario);
-$update->bindParam(':id', $id);
-$update->execute();
-$resultado = $update->fetch(PDO::FETCH_ASSOC);
+try{
+    $update = $con->prepare("UPDATE dadospessoais SET nome = :nome, conteudo = :conteudo WHERE idUsuario = :idUsuario AND idDadoPessoal = :id");
+    $update->bindParam(':nome', $nome);
+    $update->bindParam(':conteudo', $conteudo);
+    $update->bindParam(':idUsuario', $idUsuario);
+    $update->bindParam(':id', $id);
+    $update->execute();
 
+    header('Location: ../dados_pessoais.php?updateSuccess=1'); //Redirecionar se a consulta for bem sucedida
+    exit();
 
-if ($update)
-    header('Location: ../dados_pessoais.php?success=2');
-else
-    header('Location: ../dados_pessoais.php?error=2');
+}catch(PDOException $e){
+    //echo $e->getMessage();
+    header('Location: ../dados_pessoais.php?updateSuccess=0'); //Redirecionar se a consulta falhar
+    exit();
+}

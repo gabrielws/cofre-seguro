@@ -6,13 +6,16 @@ require_once '../db/config.php';
 $id = $_POST['id'];
 $idUsuario = $_SESSION['user_id'];
 
-$consulta = $con->prepare("DELETE FROM dadospessoais WHERE idDadoPessoal = :id AND idUsuario = :idUsuario");
-$consulta->bindParam(':id', $id);
-$consulta->bindParam(':idUsuario', $idUsuario);
-$consulta->execute();
-$dadoPessoal = $consulta->fetch(PDO::FETCH_ASSOC);
+try {
+    $consulta = $con->prepare("DELETE FROM dadospessoais WHERE idDadoPessoal = :id AND idUsuario = :idUsuario");
+    $consulta->bindParam(':id', $id);
+    $consulta->bindParam(':idUsuario', $idUsuario);
+    $consulta->execute();
 
-if ($dadoPessoal)
-    header('Location: ../dados_pessoais.php?success=2');
-else
-    header('Location: ../dados_pessoais.php?error=2');
+    header('Location: ../dados_pessoais.php?deleteSuccess=1'); //Redirecionar se a consulta for bem sucedida
+    exit();
+} catch (PDOException $e) {
+    //echo $e->getMessage();
+    header('Location: ../dados_pessoais.php?deleteSuccess=0'); //Redirecionar se a consulta falhar
+    exit();
+}

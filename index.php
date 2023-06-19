@@ -34,7 +34,7 @@ $notas = $consulta->fetchAll(PDO::FETCH_ASSOC);
               </div>
               <div class="row align-items-center mb-2 d-flex">
                 <div class="col-8">
-                  <h2 class="d-flex align-items-center mb-0">
+                  <h2 class="d-flex align-items-center mb-0" style="font-weight: 600;">
                     <?php echo $senhas[0]['COUNT(idSenha)']; ?>
                   </h2>
                 </div>
@@ -54,7 +54,7 @@ $notas = $consulta->fetchAll(PDO::FETCH_ASSOC);
               </div>
               <div class="row align-items-center mb-2 d-flex">
                 <div class="col-8">
-                  <h2 class="d-flex align-items-center mb-0">
+                  <h2 class="d-flex align-items-center mb-0" style="font-weight: 600;">
                     <?php echo $dados[0]['COUNT(idDadoPessoal)']; ?>
                   </h2>
                 </div>
@@ -73,7 +73,7 @@ $notas = $consulta->fetchAll(PDO::FETCH_ASSOC);
               </div>
               <div class="row align-items-center mb-2 d-flex">
                 <div class="col-8">
-                  <h2 class="d-flex align-items-center mb-0">
+                  <h2 class="d-flex align-items-center mb-0" style="font-weight: 600;">
                     <?php echo $notas[0]['COUNT(idNota)']; ?>
                   </h2>
                 </div>

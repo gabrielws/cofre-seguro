@@ -1,15 +1,21 @@
 <?php
 
-    require_once 'verifica.php';
-    require_once '../db/config.php';
+require_once 'verifica.php';
+require_once '../db/config.php';
 
-    $id = $_POST['id'];
-    $consulta = $con->query("DELETE FROM senhas WHERE idSenha = ".$id." AND idUsuario = ".$_SESSION['user_id']." LIMIT 1");
-    $credential = $consulta->fetch(PDO::FETCH_ASSOC);
+$idUsuario = $_SESSION['user_id'];
+$idSenha = $_POST['idSenha'];
 
-    if($credential)
-        header('Location: ../credentials.php?success=2');
-    else
-        header('Location: ../credentials.php?error=2');
+try {
+    $consulta = $con->prepare("DELETE FROM senhas WHERE idSenha = :id AND idUsuario = :idUsuario LIMIT 1");
+    $consulta->bindParam(':id', $idSenha);
+    $consulta->bindParam(':idUsuario', $idUsuario);
+    $consulta->execute();
 
-?>
+    header("Location: ../credentials.php?deleteSuccess=1"); //Redirecionar se a consulta for bem sucedida
+    exit();
+} catch (PDOException $e) {
+    //echo $e->getMessage();
+    header('Location: ../credentials.php?deleteSuccess=0'); //Redirecionar se a consulta falhar
+    exit();
+}
