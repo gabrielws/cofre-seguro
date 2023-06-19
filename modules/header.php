@@ -20,7 +20,7 @@
             <div class="custom-menu">
                 <button type="button" id="sidebarCollapse" class="btn btn-primary">
                     <i class="fa fa-bars"></i>
-                    <span class="sr-only">Toggle Menu</span>
+                    <span class="sr-only">Menu</span>
                 </button>
             </div>
 
@@ -29,7 +29,7 @@
                 <li class="active"><a href="/"><span class="fa fa-home mr-3"></span> Dasboard</a></li>
                 <li><a href="/credentials.php"><span class="fa fa-user mr-3"></span> Credenciais</a></li>
                 <li><a href="/dados_pessoais.php"><span class="fa fa-address-card mr-3"></span> Dados Pessoais</a></li>
-                <li><a href="#"><span class="fa fa-sticky-note mr-3"></span> Notas Seguras</a></li>
+                <li><a href="/notas_seguras.php"><span class="fa fa-sticky-note mr-3"></span> Notas Seguras</a></li>
                 <li><a href="#"><span class="fa fa fa-cog mr-3"></span> Configuração</a></li>
                 <li><a href="#"><span class="fa fa-info-circle mr-3"></span> Sobre</a></li>
 

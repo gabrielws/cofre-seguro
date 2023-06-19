@@ -6,7 +6,7 @@ require_once 'db/config.php';
 $title = "Dados Pessoais";
 require_once 'modules/header.php';
 
-$consulta = $con->query("SELECT * FROM dadospessoais INNER JOIN tipos ON dadospessoais.idTipo = tipos.idTipo where idUsuario =" . $_SESSION['user_id']);
+$consulta = $con->query("SELECT dadospessoais.idDadoPessoal, dadospessoais.idUsuario, dadospessoais.idTipo, dadospessoais.nome, dadospessoais.conteudo, tipos.nome as 'nomeTipo' FROM dadospessoais INNER JOIN tipos ON dadospessoais.idTipo = tipos.idTipo where idUsuario =" . $_SESSION['user_id']);
 $dados = $consulta->fetchAll(PDO::FETCH_ASSOC);
 
 $consulta2 = $con->query("SELECT * FROM tipos");
@@ -20,13 +20,13 @@ $tipos = $consulta2->fetchAll(PDO::FETCH_ASSOC);
     <h1>Dados Pessoais</h1>
 
   </div>
+
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#adicionar">
+    Adicionar
+  </button>
+
   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#adicionar">
-      Adicionar
-    </button>
-
     <!-- Modal -->
     <div class="modal fade" id="adicionar" tabindex="-1" aria-labelledby="adicionar" aria-hidden="true">
       <div class="modal-dialog">
@@ -70,16 +70,24 @@ $tipos = $consulta2->fetchAll(PDO::FETCH_ASSOC);
   <br>
   <div class="row row-cols-1 row-cols-md-3 g-4">
     <?php foreach ($dados as $dado) : ?>
-      <div class="col">
-        <div class="card" data-bs-toggle="modal" data-bs-target="#modal<?php echo $dado['idDadoPessoal'] ?>">
-          <div class="card-body text-white">
-            <div class="div-card">
-              <h5 class="card-title"><?php echo $dado['nome'] ?></h5>
+      <div class="col-xl-3 col-lg-6">
+        <div class="card-page card l-bg-green-dark" data-bs-toggle="modal" data-bs-target="#modal<?php echo $dado['idDadoPessoal'] ?>">
+          <div class="card-statistic-3 p-2">
+            <div class="card-icon card-icon-large"><i class="fas fa-id-badge"></i></div>
+            <div class="mb-4">
+              <h5 class="card-title mb-0" style="font-weight: 500;"><?php echo mb_strimwidth($dado['nomeTipo'], 0, 25, '...') ?></h5>
             </div>
-            <p class="card-text text-muted"><?php echo $dado['conteudo'] ?></p>
+            <div class="row align-items-center mb-2 d-flex">
+              <div class="col-8">
+                <h2 class="d-flex align-items-center mb-0" style="font-weight: 600;">
+                  <?php echo $dado['nome'] ?>
+                </h2>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
       <div class="modal fade" id="modal<?php echo $dado['idDadoPessoal'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -104,14 +112,15 @@ $tipos = $consulta2->fetchAll(PDO::FETCH_ASSOC);
                 </div>
                 <br>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                   <button type="submit" class="btn btn-primary">Salvar</button>
+                  <button type="submit" class="btn btn-danger" form="form2">Excluir</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                 </div>
               </form>
               <div class="modal-footer">
-                <form action="controllers/delete-dado.php" method="POST">
+                <form action="controllers/delete-dado.php" method="POST" id="form2">
                   <input type="text" name="id" value="<?php echo $dado['idDadoPessoal'] ?>" hidden readonly>
-                  <button type="submit" class="btn btn-danger">Excluir</button>
+
                 </form>
               </div>
             </div>

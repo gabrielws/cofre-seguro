@@ -16,7 +16,8 @@ $update->bindParam(':id', $id);
 $update->execute();
 $resultado = $update->fetch(PDO::FETCH_ASSOC);
 
-if ($resultado)
+
+if ($update)
     header('Location: ../dados_pessoais.php?success=2');
 else
     header('Location: ../dados_pessoais.php?error=2');
