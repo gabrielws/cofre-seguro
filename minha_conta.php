@@ -33,17 +33,17 @@ try {
 
                     <div class="mb-3">
                         <label for="senhaAtual" class="form-label">Senha Atual</label>
-                        <input type="password" class="form-control" id="senhaAtual" name="senhaAtual">
+                        <input type="password" class="form-control" id="senhaAtual" name="senhaAtual" required minlength="3" maxlength="45">
                     </div>
 
                     <div class="mb-3">
                         <label for="novaSenha" class="form-label">Nova Senha</label>
-                        <input type="password" class="form-control" id="novaSenha" name="novaSenha">
+                        <input type="password" class="form-control" id="novaSenha" name="novaSenha" required minlength="3" maxlength="45">
                     </div>
 
                     <div class="mb-3">
                         <label for="confirmarSenha" class="form-label">Confirmar Senha</label>
-                        <input type="password" class="form-control" id="confirmarSenha" name="confirmarSenha">
+                        <input type="password" class="form-control" id="confirmarSenha" name="confirmarSenha" required minlength="3" maxlength="45">
                     </div>
 
                     <div class="modal-footer">

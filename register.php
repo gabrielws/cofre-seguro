@@ -40,23 +40,23 @@ $title = "Registrar";
       <h1 class="h3 mb-3 fw-normal">Registrar</h1>
 
       <div class="form-floating">
-        <input type="text" name="nome" class="form-control" id="nome" placeholder="name@example.com">
+        <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome" required minlength="3" maxlength="24">
         <label for="nome">Nome</label>
       </div>
       <div class="form-floating">
-        <input type="text" name="sobrenome" class="form-control" id="sobrenome" placeholder="name@example.com">
+        <input type="text" name="sobrenome" class="form-control" id="sobrenome" placeholder="Sobrenome" required minlength="3" maxlength="24">
         <label for="sobrenome">Sobrenome</label>
       </div>
       <div class="form-floating">
-        <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com">
+        <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com" required minlength="3" maxlength="90">
         <label for="email">Email</label>
       </div>
       <div class="form-floating">
-        <input type="tel" name="telefone" class="form-control" id="telefone" placeholder="(12)3 4567-8910">
+        <input type="tel" name="telefone" class="form-control" id="telefone" placeholder="(12)3 4567-8910" required minlength="3" maxlength="16">
         <label for="telefone">Telefone</label>
       </div>
       <div class="form-floating">
-        <input type="password" name="senha" class="form-control" id="senha" placeholder="Senha">
+        <input type="password" name="senha" class="form-control" id="senha" placeholder="Senha" required minlength="3" maxlength="45">
         <label for="senha">Senha</label>
       </div><br>
       <button class="w-100 btn btn-lg btn-primary" type="submit">Registrar</button></p>

@@ -40,12 +40,12 @@ $title = "Entrar";
       <h1 class="h3 mb-3 fw-normal">Entrar</h1>
 
       <div class="form-floating">
-        <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Email</label>
+        <input type="email" name="email" class="form-control" id="email" placeholder="nome@exemplo.com" required minlength="3" maxlength="90">
+        <label for="email">Email</label>
       </div>
       <div class="form-floating">
-        <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
-        <label for="floatingPassword">Senha</label>
+        <input type="password" name="password" class="form-control" id="senha" placeholder="Senha" required minlength="3" maxlength="45">
+        <label for="senha">Senha</label>
       </div>
 
       <div class="checkbox mb-3">
