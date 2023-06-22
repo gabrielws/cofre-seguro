@@ -1,0 +1,7 @@
+- Abra a pasta "db", lá dentro é possível achar os arquivos de Modelagem e Inserção de Registros, abra o arquivo "registros" e execute o SQL.
+
+- Dentro da página do projeto, abra um CMD dentro dela, digite: "php -S localhost:3000", é necessário ter o PHP instalado no caminho Path.
+
+- Abra o endereço "localhost:3000" em um navegador qualquer
+
+-Login: admin@admin.com / admin

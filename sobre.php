@@ -12,7 +12,7 @@ $senhas = $consulta->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
-<div id="content" class="p-4 p-md-5 pt-5">
+<div id="content" class="p-4 p-md-5 pt-5" style="color: #fff;">
     <div class="row row-cols-1 row-cols-md-3 g-4 text-white">
         <h1>Sobre</h1>
     </div>
