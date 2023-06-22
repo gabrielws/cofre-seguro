@@ -5,7 +5,7 @@ body {
     font-size: 14px;
     line-height: 1.8;
     font-weight: normal;
-    background: #1f2734;
+    background: #20334D;
 }
 
 a {
@@ -66,7 +66,7 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5, p {
 #sidebar{
     min-width: 250px;
     max-width: 250px;
-    background: #2a3042;
+    background: #293B59;
     color: #2a3042;
     -webkit-transition: all 0.3s;
     -o-transition: all 0.3s;
@@ -98,7 +98,7 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5, p {
     color: #fff;
     display: block;
     padding: 10px 30px;
-    background: #2a3042;
+    background: #293B59;
 }
     
 #sidebar ul.components {
