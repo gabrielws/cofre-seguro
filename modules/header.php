@@ -30,8 +30,8 @@
                 <li><a href="/credentials.php"><span class="fa fa-user mr-3"></span> Credenciais</a></li>
                 <li><a href="/dados_pessoais.php"><span class="fa fa-address-card mr-3"></span> Dados Pessoais</a></li>
                 <li><a href="/notas_seguras.php"><span class="fa fa-sticky-note mr-3"></span> Notas Seguras</a></li>
-                <li><a href="#"><span class="fa fa fa-cog mr-3"></span> Configuração</a></li>
-                <li><a href="#"><span class="fa fa-info-circle mr-3"></span> Sobre</a></li>
+                <li><a href="/minha_conta.php"><span class="fa fa fa-cog mr-3"></span> Minha Conta</a></li>
+                <li><a href="/sobre.php"><span class="fa fa-info-circle mr-3"></span> Sobre</a></li>
 
                 <li><a href="controllers/logout.php" class="btn-logout"><span class="fa fa-window-close mr-3 "></span> Sair</a></li>
             </ul>
